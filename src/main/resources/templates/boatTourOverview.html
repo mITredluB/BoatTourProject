@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Boat Tour Overview</title>
+</head>
+<body>
+<h1>Overview of boat tours</h1>
+
+<table>
+    <tr>
+        <th>Boat</th>
+        <th>Guide</th>
+        <th>Skipper</th>
+    </tr>
+    <tr th:each="boatTour : ${allBoatTours}">
+        <td th:text="${boatTour.boat}"></td>
+        <td th:text="${boatTour.guide}"></td>
+        <td th:text="${boatTour.skipper}"></td>
+    </tr>
+</table>
+</body>
+</html>
