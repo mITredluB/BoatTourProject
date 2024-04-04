@@ -23,7 +23,12 @@
                 <input type="text" id="guideField" th:field="*{guide}" />
             </td>
             <td>
-                <input type="text" id="skipperField" th:field="*{skipper}" />
+                <select id="skipperField" th:field="*{skippers}" multiple>
+                    <option th:each="skipper : ${allSkippers}"
+                            th:text="${skipper.name}"
+                            th:value="${skipper.skipperId}">
+                    </option>
+                </select>
             </td>
         </tr>
     </table>

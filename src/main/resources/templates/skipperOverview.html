@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Skipper Overview</title>
+</head>
+<body>
+
+<h1>Overview of all the skippers known in the database</h1>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    <tr th:each="skipper : ${allSkippers}">
+        <td th:text="${skipper.name}"></td>
+        <td></td>
+    </tr>
+
+    <form th:action="@{/boattour/skipper/new}" method="post" th:object="${newSkipper}">
+        <tr>
+            <td><input type="text" th:field="*{name}"></td>
+            <td><input type="submit" value="Save new skipper"></td>
+        </tr>
+    </form>
+
+</table>
+</body>
+</html>

@@ -3,6 +3,8 @@ package nl.miwnn13.rondvaartdemo.tim.BoatTourWebpage.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Author: Tim Bulder
@@ -16,16 +18,10 @@ public class BoatTour {
     private Long boatTourId;
     private String boat;
     private String guide;
-    private String skipper;
 
-    public BoatTour(String boat, String guide, String skipper) {
-        this.boat = boat;
-        this.guide = guide;
-        this.skipper = skipper;
-    }
+    @ManyToMany
+    private Set<Skipper> skippers;
 
-    public BoatTour() {
-    }
 
     public String getBoat() {
         return boat;
@@ -43,11 +39,11 @@ public class BoatTour {
         this.guide = guide;
     }
 
-    public String getSkipper() {
-        return skipper;
+    public Set<Skipper> getSkippers() {
+        return skippers;
     }
 
-    public void setSkipper(String skipper) {
-        this.skipper = skipper;
+    public void setSkippers(Set<Skipper> skippers) {
+        this.skippers = skippers;
     }
 }

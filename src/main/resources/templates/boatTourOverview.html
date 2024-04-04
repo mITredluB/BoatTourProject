@@ -16,12 +16,15 @@
     <tr th:each="boatTour : ${allBoatTours}">
         <td th:text="${boatTour.boat}"></td>
         <td th:text="${boatTour.guide}"></td>
-        <td th:text="${boatTour.skipper}"></td>
+        <td th:text="${boatTour.skippers}"></td>
     </tr>
 </table>
 
 <p>
     <a th:href="@{boattour/new}">Add new boat tour</a>
+</p>
+<p>
+    <a th:href="@{boattour/skipper}">Skipper overview</a>
 </p>
 </body>
 </html>
