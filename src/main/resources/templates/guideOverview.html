@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Guide overview</title>
+</head>
+<body>
+
+<h1>Overview of all the guides known in the database</h1>
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th></th>
+    </tr>
+    <tr th:each="guide : ${allGuides}">
+        <td th:text="${guide.name}"></td>
+        <td></td>
+    </tr>
+
+    <form th:action="@{/boattour/guide/new}" method="post" th:object="${newGuide}">
+        <tr>
+            <td><input type="text" th:field="*{name}"></td>
+            <td><input type="submit" value="Save new guide"></td>
+        </tr>
+    </form>
+
+</table>
+</body>
+</html>

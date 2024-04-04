@@ -9,6 +9,8 @@
 <h1>Create new boat tour</h1>
 
 <form th:action="@{/boattour/new}" method="post" th:object="${boatTour}">
+
+    <input type="hidden" th:field="*{boatTourId}">
     <table>
         <tr>
             <td><label for="boatField">Boat</label></td>
@@ -17,10 +19,20 @@
         </tr>
         <tr>
             <td>
-                <input type="text" id="boatField" th:field="*{boat}" />
+                <select id="boatField" th:field="*{boats}" multiple>
+                    <option th:each="boat : ${allBoats}"
+                            th:text="${boat.name}"
+                            th:value="${boat.boatID}">
+                    </option>
+            </select>
             </td>
             <td>
-                <input type="text" id="guideField" th:field="*{guide}" />
+                <select id="guideField" th:field="*{guides}" multiple>
+                    <option th:each="guide : ${allGuides}"
+                            th:text="${guide.name}"
+                            th:value="${guide.guideID}">
+                    </option>
+                </select>
             </td>
             <td>
                 <select id="skipperField" th:field="*{skippers}" multiple>

@@ -14,9 +14,10 @@
         <th>Skipper</th>
     </tr>
     <tr th:each="boatTour : ${allBoatTours}">
-        <td th:text="${boatTour.boat}"></td>
-        <td th:text="${boatTour.guide}"></td>
+        <td th:text="${boatTour.boats}"></td>
+        <td th:text="${boatTour.guides}"></td>
         <td th:text="${boatTour.skippers}"></td>
+        <td><a th:href="@{/boattour/edit/{boatTourId}(boatTourId = ${boatTour.boatTourId})}">Edit boat tour</a></td>
     </tr>
 </table>
 
@@ -25,6 +26,12 @@
 </p>
 <p>
     <a th:href="@{boattour/skipper}">Skipper overview</a>
+</p>
+<p>
+    <a th:href="@{boattour/guide}">Guide overview</a>
+</p>
+<p>
+    <a th:href="@{boattour/boat}">Boat overview</a>
 </p>
 </body>
 </html>
