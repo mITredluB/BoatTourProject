@@ -1,52 +1,59 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
     <title>Create new boat tour</title>
 </head>
 <body>
 
-<h1>Create new boat tour</h1>
+<div th:replace="~{fragments/general :: navbar}"></div>
 
-<form th:action="@{/boattour/new}" method="post" th:object="${boatTour}">
+<div class="container">
+    <h1>Create new boat tour</h1>
 
-    <input type="hidden" th:field="*{boatTourId}">
-    <table>
-        <tr>
-            <td><label for="boatField">Boat</label></td>
-            <td><label for="guideField">Guide</label></td>
-            <td><label for="skipperField">Skipper</label></td>
-        </tr>
-        <tr>
-            <td>
-                <select id="boatField" th:field="*{boats}" multiple>
-                    <option th:each="boat : ${allBoats}"
-                            th:text="${boat.name}"
-                            th:value="${boat.boatID}">
-                    </option>
-            </select>
-            </td>
-            <td>
-                <select id="guideField" th:field="*{guides}" multiple>
-                    <option th:each="guide : ${allGuides}"
-                            th:text="${guide.name}"
-                            th:value="${guide.guideID}">
-                    </option>
-                </select>
-            </td>
-            <td>
-                <select id="skipperField" th:field="*{skippers}" multiple>
-                    <option th:each="skipper : ${allSkippers}"
-                            th:text="${skipper.name}"
-                            th:value="${skipper.skipperId}">
-                    </option>
-                </select>
-            </td>
-        </tr>
-    </table>
+    <form th:action="@{/boattour/new}" method="post" th:object="${boatTour}">
 
-    <input type="submit" value="Save boat tour"/>
+        <input type="hidden" th:field="*{boatTourId}">
+        <table>
+            <tr>
+                <td><label for="boatField">Boat</label></td>
+                <td><label for="guideField">Guide</label></td>
+                <td><label for="skipperField">Skipper</label></td>
+            </tr>
+            <tr>
+                <td>
+                    <select id="boatField" th:field="*{boats}" multiple>
+                        <option th:each="boat : ${allBoats}"
+                                th:text="${boat.name}"
+                                th:value="${boat.boatID}">
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select id="guideField" th:field="*{guides}" multiple>
+                        <option th:each="guide : ${allGuides}"
+                                th:text="${guide.name}"
+                                th:value="${guide.guideID}">
+                        </option>
+                    </select>
+                </td>
+                <td>
+                    <select id="skipperField" th:field="*{skippers}" multiple>
+                        <option th:each="skipper : ${allSkippers}"
+                                th:text="${skipper.name}"
+                                th:value="${skipper.skipperId}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+        </table>
 
-</form>
+        <input type="submit" value="Save boat tour"/>
+
+    </form>
+</div>
+
+<div th:replace="~{fragments/general :: footer}"></div>
+<div th:replace="~{fragments/general :: bottomScripts}"></div>
+
 </body>
 </html>

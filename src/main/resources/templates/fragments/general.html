@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:fragment="baseHeader(title)">
+    <meta charset="UTF-8">
+    <title th:replace="${title}"></title>
+
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/css/boatTour.css" />
+</head>
+<body>
+
+<div class="navbar" th:fragment="navbar">
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/boattours}">Boat Tours</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/boattour/skipper}">Skippers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/boattour/guide}">Guides</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/boattour/boat}">Boats</a>
+        </li>
+    </ul>
+</div>
+
+<div class="footer" th:fragment="footer">
+    <footer><p class="text-center text text-muted">Copyright Tim Bulder &copy;2024</p></footer>
+</div>
+
+<div th:fragment="bottomScripts">
+    <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+    <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</div>
+
+</body>
+</html>

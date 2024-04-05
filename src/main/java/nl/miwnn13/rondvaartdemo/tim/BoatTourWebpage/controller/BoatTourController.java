@@ -37,7 +37,7 @@ public class BoatTourController {
         this.boatRepository = boatRepository;
     }
 
-    @GetMapping("/")
+    @GetMapping({"/", "/boattours"})
     private String showBoatTourOverview(Model model) {
         model.addAttribute("allBoatTours", boatTourRepository.findAll());
 

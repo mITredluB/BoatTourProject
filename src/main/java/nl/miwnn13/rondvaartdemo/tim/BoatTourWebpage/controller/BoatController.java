@@ -1,7 +1,6 @@
 package nl.miwnn13.rondvaartdemo.tim.BoatTourWebpage.controller;
 
 import nl.miwnn13.rondvaartdemo.tim.BoatTourWebpage.model.Boat;
-import nl.miwnn13.rondvaartdemo.tim.BoatTourWebpage.model.Guide;
 import nl.miwnn13.rondvaartdemo.tim.BoatTourWebpage.repositories.BoatRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

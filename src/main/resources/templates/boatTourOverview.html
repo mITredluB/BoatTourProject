@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="~{fragments/general :: baseHeader(~{:: title})}">
     <title>Boat Tour Overview</title>
 </head>
 <body>
-<h1>Overview of boat tours</h1>
 
-<table>
-    <tr>
-        <th>Boat</th>
-        <th>Guide</th>
-        <th>Skipper</th>
-    </tr>
-    <tr th:each="boatTour : ${allBoatTours}">
-        <td th:text="${boatTour.boats}"></td>
-        <td th:text="${boatTour.guides}"></td>
-        <td th:text="${boatTour.skippers}"></td>
-        <td><a th:href="@{/boattour/edit/{boatTourId}(boatTourId = ${boatTour.boatTourId})}">Edit boat tour</a></td>
-    </tr>
-</table>
+<div th:replace="~{fragments/general :: navbar}"></div>
 
-<p>
-    <a th:href="@{boattour/new}">Add new boat tour</a>
-</p>
-<p>
-    <a th:href="@{boattour/skipper}">Skipper overview</a>
-</p>
-<p>
-    <a th:href="@{boattour/guide}">Guide overview</a>
-</p>
-<p>
-    <a th:href="@{boattour/boat}">Boat overview</a>
-</p>
+<div class="container">
+    <h1>Overview of boat tours</h1>
+
+    <table>
+        <tr>
+            <th>Boat</th>
+            <th>Guide</th>
+            <th>Skipper</th>
+        </tr>
+        <tr th:each="boatTour : ${allBoatTours}">
+            <td th:text="${boatTour.boats}"></td>
+            <td th:text="${boatTour.guides}"></td>
+            <td th:text="${boatTour.skippers}"></td>
+            <td><a th:href="@{/boattour/edit/{boatTourId}(boatTourId = ${boatTour.boatTourId})}">Edit boat tour</a></td>
+        </tr>
+    </table>
+
+    <p>
+        <a th:href="@{boattour/new}">Add new boat tour</a>
+    </p>
+</div>
+
+<div th:replace="~{fragments/general :: footer}"></div>
+<div th:replace="~{fragments/general :: bottomScripts}"></div>
+
 </body>
 </html>
